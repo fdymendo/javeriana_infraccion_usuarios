@@ -1,10 +1,12 @@
+server:
+  port: 8080
 spring:
   jpa:
     database: mysql
     hibernate:
       ddl-auto: validate
   datasource:
-    url: jdbc:mysql://192.168.1.1:3306/javeriana
-    username: root
-    password: Example132
+    url: jdbc:mysql://${MYSQL_IP}:${MYSQL_PORT}/javeriana
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PWD}
     driver-class-name: com.mysql.cj.jdbc.Driver
