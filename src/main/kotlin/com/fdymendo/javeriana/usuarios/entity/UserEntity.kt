@@ -17,7 +17,7 @@ data class UserEntity(
     val document: String,
     val password: String,
     @Column(columnDefinition = "tinyint")
-    val active: Boolean,
+    var active: Boolean,
     val createDate: Date,
     val updateDate: Date,
 )
@@ -33,7 +33,7 @@ fun UserEntity.toDTO() = UserDTO(
         abbreviation = this.typeDocument.abbreviation
     ),
     document = this.document,
-    password = "",
+    password = this.password,
     active = this.active,
     createDate = this.createDate,
     updateDate = this.updateDate

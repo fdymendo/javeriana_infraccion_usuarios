@@ -3,6 +3,7 @@ package com.fdymendo.javeriana.usuarios.handlers
 import org.springframework.http.HttpStatus
 
 class ApplicationException(e: Exception?, message: String, httpStatus: HttpStatus) :
+
     Exception(message, e) {
 
     private val httpStatus: HttpStatus
@@ -11,6 +12,7 @@ class ApplicationException(e: Exception?, message: String, httpStatus: HttpStatu
         this.httpStatus = httpStatus
     }
 
+    fun getHttpStatus() = httpStatus
     companion object {
         /**
          *

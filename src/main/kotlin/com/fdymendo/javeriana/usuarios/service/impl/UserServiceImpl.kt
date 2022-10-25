@@ -12,15 +12,17 @@ import com.fdymendo.javeriana.usuarios.service.IUserService
 import com.fdymendo.javeriana.usuarios.utils.GenericMethods
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class UserServiceImpl(private val userRepository: UserRepository) :
     ACrudServiceTemplate<UserRepository, UserEntity>(userRepository), IUserService {
 
     override fun saveItem(item: UserDTO): ResponseEntity<ResponseDefault> {
-        val itemToSave = item.toEntity()
+        var itemToSave = item.toEntity()
+        itemToSave.active = true;
         this.userRepository.save(itemToSave)
-        return GenericMethods.responseOk(ResponseDefault(item.clean(itemToSave.id)))
+        return GenericMethods.responseOk(ResponseDefault(itemToSave.toDTO().clean()))
     }
 
     override fun getItem(id: String): ResponseEntity<ResponseDefault> {
@@ -34,8 +36,11 @@ class UserServiceImpl(private val userRepository: UserRepository) :
     override fun updateItem(item: UserDTO, id: String): ResponseEntity<ResponseDefault> {
         this.userRepository.getReferenceById(id).toDTO().let {
             item.id = id
-            this.userRepository.save(item.toEntity())
-            return GenericMethods.responseOk(ResponseDefault(it))
+            item.createDate = it.createDate
+            item.updateDate = Date()
+            val itemToSave = item.toEntity()
+            this.userRepository.save(itemToSave)
+            return GenericMethods.responseOk(ResponseDefault(itemToSave.toDTO().clean()))
         }
         return GenericMethods.responseNotFound()
     }

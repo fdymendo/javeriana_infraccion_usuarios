@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/users/v1")
 class UserController(val iUserService: IUserService) {
 
-    @GetMapping(name = "/{id}")
-    fun getUser(@PathVariable id: String) = iUserService.getItem(id)
+    @GetMapping("/{id}")
+    fun getUser(@PathVariable("id") id: String) = iUserService.getItem(id)
 
-    @PostMapping(name = "/")
+    @PostMapping("/")
     fun saveUser(@RequestBody userDTO: UserDTO) = iUserService.saveItem(userDTO)
 
-    @PutMapping(name = "/{id}")
-    fun putUser(@PathVariable id: String, @RequestBody userDTO: UserDTO) = iUserService.updateItem(userDTO, id)
+    //@PutMapping("/{id}")
+    //fun putUser(@PathVariable("id") id: String, @RequestBody userDTO: UserDTO) = iUserService.updateItem(userDTO, id)
 
-    @DeleteMapping(name = "/{id}")
-    fun putUser(@PathVariable id: String) = iUserService.deleteItem(id)
+    @DeleteMapping("/{id}")
+    fun deleteUser(@PathVariable("id") id: String) = iUserService.deleteItem(id)
 
 }
