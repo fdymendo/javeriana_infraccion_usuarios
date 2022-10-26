@@ -36,5 +36,6 @@ class GenericMethods {
         fun responseBadRequest(): ResponseEntity<ResponseDefault> {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null)
         }
+
     }
 }
