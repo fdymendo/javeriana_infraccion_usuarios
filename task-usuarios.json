@@ -1,27 +1,28 @@
 {
-  "executionRoleArn": "arn:aws:iam::073061431630:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::006078069859:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
   "containerDefinitions": [
     {
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/task-dlab-col-comparendo-de",
+          "awslogs-group": "/ecs/task-eaesof-usuarios",
           "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs"
         }
       },
       "portMappings": [
         {
-          "hostPort": 9048,
+          "hostPort": 80,
           "protocol": "tcp",
-          "containerPort": 9048
+          "containerPort": 80
         }
       ],
+      
       "cpu": 0,
       "environment": [],
       "mountPoints": [],
       "volumesFrom": [],
-      "image": "073061431630.dkr.ecr.us-east-1.amazonaws.com/comparendo-be-col-dev:comparendo",
+      "image": "006078069859.dkr.ecr.us-east-1.amazonaws.com/usuarios-eaesof:usuarios",
 	  "dependsOn": [
         {
           "containerName": "envoy",
@@ -29,7 +30,7 @@
         }
       ],
       "essential": true,
-      "name": "cont-dlab-col-comparendo-dev"
+      "name": "cont-eaesof-usuarios"
     },
     {
       "portMappings": [],
@@ -37,13 +38,22 @@
       "environment": [
         {
           "name": "APPMESH_VIRTUAL_NODE_NAME",
-          "value": "mesh/Datalab_Col_Dev/virtualNode/comparendo"
+          "value": "mesh/eaesof/virtualNode/usuarios"
+          
         }
       ],
       "mountPoints": [],
       "memory": 500,
       "volumesFrom": [],
-      "image": "840364872350.dkr.ecr.us-east-1.amazonaws.com/aws-appmesh-envoy:v1.17.2.0-prod",
+      "image": "006078069859.dkr.ecr.us-east-1.amazonaws.com/aws-appmesh-envoy:v1.19.1.0-prod",
+        "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/task-eaesof-usuarios",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
       "healthCheck": {
         "retries": 3,
         "command": [
@@ -60,10 +70,10 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "512",
-  "taskRoleArn": "arn:aws:iam::073061431630:role/ecsTaskExecutionRole",
+  "memory": "1024",
+  "taskRoleArn": "arn:aws:iam::006078069859:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
 
-  "family": "task-dlab-col-comparendo-de",
+  "family": "task-eaesof-usuarios",
   "requiresCompatibilities": [
     "FARGATE"
   ],
@@ -79,7 +89,7 @@
       },
       {
         "name": "AppPorts",
-        "value": "9048"
+        "value": "9057"
       },
       {
         "name": "EgressIgnoredIPs",
@@ -91,7 +101,7 @@
       },
       {
         "name": "EgressIgnoredPorts",
-        "value": "8899"
+        "value": "8899,27017"
       },
       {
         "name": "IgnoredUID",
