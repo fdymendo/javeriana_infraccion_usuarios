@@ -22,7 +22,7 @@
       "environment": [
         {
           "name": "MYSQL_IP",
-          "value": "carroya-eaesof.cw8wuioquzwa.us-east-1.rds.amazonaws.com:${var.service1}"
+          "value": "carroya-eaesof.cw8wuioquzwa.us-east-1.rds.amazonaws.com:usuarios"
         },
         {
           "name": "MYSQL_PORT",
