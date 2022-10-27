@@ -106,7 +106,7 @@
       },
       {
         "name": "AppPorts",
-        "value": "9057"
+        "value": "8080"
       },
       {
         "name": "EgressIgnoredIPs",
