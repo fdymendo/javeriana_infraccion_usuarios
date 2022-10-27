@@ -62,7 +62,7 @@
       "mountPoints": [],
       "memory": 500,
       "volumesFrom": [],
-      "image": "006078069859.dkr.ecr.us-east-1.amazonaws.com/aws-appmesh-envoy:v1.19.1.0-prod",
+      "image": "840364872350.dkr.ecr.us-east-1.amazonaws.com/aws-appmesh-envoy:v1.23.1.0-prod",
         "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
