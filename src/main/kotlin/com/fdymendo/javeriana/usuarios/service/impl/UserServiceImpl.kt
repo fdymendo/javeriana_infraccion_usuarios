@@ -27,10 +27,8 @@ class UserServiceImpl(private val userRepository: UserRepository) :
 
     override fun getItem(id: String): ResponseEntity<ResponseDefault> {
         this.userRepository.getReferenceById(id).toDTO().let {
-
             return  GenericMethods.responseOk(ResponseDefault(it))
         }
-        return GenericMethods.responseNotFound()
     }
 
     override fun updateItem(item: UserDTO, id: String): ResponseEntity<ResponseDefault> {
@@ -42,7 +40,6 @@ class UserServiceImpl(private val userRepository: UserRepository) :
             this.userRepository.save(itemToSave)
             return GenericMethods.responseOk(ResponseDefault(itemToSave.toDTO().clean()))
         }
-        return GenericMethods.responseNotFound()
     }
 
     override fun deleteItem(id: String): ResponseEntity<ResponseDefault> {
@@ -51,7 +48,6 @@ class UserServiceImpl(private val userRepository: UserRepository) :
             this.userRepository.save(it.toEntity())
             return GenericMethods.responseOk(ResponseDefault(it))
         }
-        return GenericMethods.responseNotFound()
     }
 
 
