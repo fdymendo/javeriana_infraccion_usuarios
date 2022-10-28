@@ -22,7 +22,7 @@
       "environment": [
         {
           "name": "MYSQL_IP",
-          "value": "carroya-eaesof.cw8wuioquzwa.us-east-1.rds.amazonaws.com:usuarios"
+          "value": "carroya-eaesof.cw8wuioquzwa.us-east-1.rds.amazonaws.com"
         },
         {
           "name": "MYSQL_PORT",
@@ -106,7 +106,7 @@
       },
       {
         "name": "AppPorts",
-        "value": "8080"
+        "value": "9057"
       },
       {
         "name": "EgressIgnoredIPs",
