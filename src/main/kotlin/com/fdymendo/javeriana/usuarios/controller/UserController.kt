@@ -6,7 +6,7 @@ import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/users/v1")
+@RequestMapping("/usuarios/v1")
 class UserController(val iUserService: IUserService) {
 
     @GetMapping("/{id}")
