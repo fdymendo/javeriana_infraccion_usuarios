@@ -5,6 +5,7 @@ import com.fdymendo.javeriana.usuarios.service.IUserService
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
 
+@CrossOrigin
 @RestController
 @RequestMapping("/usuarios/v1")
 class UserController(val iUserService: IUserService) {
