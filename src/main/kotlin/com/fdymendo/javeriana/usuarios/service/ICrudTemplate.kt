@@ -18,5 +18,5 @@ interface ICrudTemplate<T> {
     fun updateItem(item: T, id: String): ResponseEntity<ResponseDefault>
     fun deleteItem(id: String): ResponseEntity<ResponseDefault>
     fun getItem(id: String): ResponseEntity<ResponseDefault>
-    val allItems: ResponseEntity<Any>
+    fun allItems(): ResponseEntity<ResponseDefault>
 }
