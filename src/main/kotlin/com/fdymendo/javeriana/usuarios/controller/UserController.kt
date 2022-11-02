@@ -13,7 +13,10 @@ class UserController(val iUserService: IUserService) {
     @GetMapping("/{id}")
     fun getUser(@PathVariable("id") id: String) = iUserService.getItem(id)
 
-    @PostMapping("/")
+    @GetMapping
+    fun getUserByIdentity(@RequestParam cc: String, @RequestParam td: String) = iUserService.getUserByIdentity(cc, td)
+
+    @PostMapping
     fun saveUser(@RequestBody userDTO: UserDTO) = iUserService.saveItem(userDTO)
 
     //@PutMapping("/{id}")
