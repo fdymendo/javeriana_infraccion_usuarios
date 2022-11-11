@@ -5,10 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 abstract class ACrudServiceTemplate<T : JpaRepository<S, String>, S>(private var repository: T) {
 
-    fun save(item: S) {
-        repository.save(item)
-    }
-
     fun deleteById(id: String) {
         repository.deleteById(id)
     }

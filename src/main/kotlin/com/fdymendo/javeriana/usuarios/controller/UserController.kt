@@ -25,4 +25,10 @@ class UserController(val iUserService: IUserService) {
     @DeleteMapping("/{id}")
     fun deleteUser(@PathVariable("id") id: String) = iUserService.deleteItem(id)
 
+    @GetMapping("/login")
+    fun login(@RequestHeader email: String, @RequestHeader pwd: String) = iUserService.login(email = email, pwd = pwd)
+
+    @GetMapping("/valid")
+    fun validateToken(@RequestHeader("Authorization") token: String) = iUserService.validateToken(token)
+
 }

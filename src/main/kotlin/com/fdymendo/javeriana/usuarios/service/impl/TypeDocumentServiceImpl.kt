@@ -30,5 +30,6 @@ class TypeDocumentServiceImpl(
         TODO("Not yet implemented")
     }
 
-    override fun allItems() = GenericMethods.responseOk(ResponseDefault(null, typeDocumentRepository.findAll()))
+    override fun allItems() =
+        GenericMethods.responseOk(ResponseDefault(null, typeDocumentRepository.findAll(), null, null))
 }
