@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  jackson:
+    default-property-inclusion: NON_NULL
   jpa:
     database: mysql
     hibernate:
@@ -10,3 +12,6 @@ spring:
     username: ${MYSQL_USER}
     password: ${MYSQL_PWD}
     driver-class-name: com.mysql.cj.jdbc.Driver
+api:
+  internal:
+    jwt: 72fdc6f2-fe7f-44c0-8796-8808a39c8b3d

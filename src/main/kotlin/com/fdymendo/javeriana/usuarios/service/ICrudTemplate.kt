@@ -6,12 +6,7 @@ import org.springframework.http.ResponseEntity
 
 
 interface ICrudTemplate<T> {
-    /**
-     *
-     * @param item objeto a guardar
-     *
-     * @return retorna el objeto guardado
-     */
+
     fun saveItem(item: T): ResponseEntity<ResponseDefault>
 
     @Throws(ApplicationException::class)

@@ -5,7 +5,7 @@ import com.fdymendo.javeriana.usuarios.entity.TypeDocumentEntity
 
 data class ResponseDefault(
     var user: UserDTO?,
-    var typeDocuments: List<TypeDocumentEntity>?) {
-
-
+    var typeDocuments: List<TypeDocumentEntity>?,
+    var token: String?,
+    var valid: Boolean?) {
 }
