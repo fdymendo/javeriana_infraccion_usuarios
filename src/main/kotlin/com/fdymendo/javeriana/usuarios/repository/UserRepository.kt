@@ -9,5 +9,4 @@ import org.springframework.data.jpa.repository.JpaRepository
 interface UserRepository : JpaRepository<UserEntity, String> {
     fun findByDocumentAndTypeDocument(document: String, typeDocument: TypeDocumentEntity): UserEntity
     fun findByEmailAndPassword(email: String, pwd: String): UserEntity
-
 }

@@ -9,6 +9,5 @@ interface IUserService : ICrudTemplate<UserDTO> {
 
     fun getUserByIdentity(document: String, typeDocument: String): ResponseEntity<ResponseDefault>
     fun login(email:String, pwd: String): ResponseEntity<ResponseDefault>
-
     fun validateToken(token:String): ResponseEntity<ResponseDefault>
 }

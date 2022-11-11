@@ -7,5 +7,5 @@ data class ResponseDefault(
     var user: UserDTO?,
     var typeDocuments: List<TypeDocumentEntity>?,
     var token: String?,
-    var valid: Boolean?
-)
+    var valid: Boolean?) {
+}

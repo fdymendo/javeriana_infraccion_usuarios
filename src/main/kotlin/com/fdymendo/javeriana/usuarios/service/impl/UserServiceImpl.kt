@@ -44,6 +44,16 @@ class UserServiceImpl(
         }
     }
 
+    override fun getUserByIdentity(document: String, typeDocument: String): ResponseEntity<ResponseDefault> {
+        val typeDocument = typeDocumentRepository.findByAbbreviation(typeDocument)
+        typeDocument.let {
+            val user = userRepository.findByDocumentAndTypeDocument(document, typeDocument)
+            user.let {
+                return GenericMethods.responseOk(ResponseDefault(user.toDTO(), null))
+            }
+        }
+    }
+
     override fun saveItem(item: UserDTO): ResponseEntity<ResponseDefault> {
         var itemToSave = item.toEntity()
         itemToSave.active = true;
