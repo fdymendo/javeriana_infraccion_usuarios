@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RestController
 class OKController {
 
     @GetMapping
-    fun saveInfraction() = GenericMethods.responseOk()
+    fun saveInfraction() = ResponseEntity.ok().body("servicio usuarios")
 
 }
